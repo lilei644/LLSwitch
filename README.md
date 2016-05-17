@@ -2,7 +2,7 @@ LLSwitch
 ==================
 
 
-This is a funny switch for iOS
+This is a funny switch for iOS<br>
 一个有趣的switch
 
 Thank [Dribbble](https://dribbble.com/shots/2706143-Dribbble-Debut-Boring-Funny-Slider-Animation) for providing inspiration
@@ -61,4 +61,4 @@ NSLog(@"stop");
 IOS 6.0 Above
 
 ## License
-LLSlideMenu is provided under the MIT license. See LICENSE file for details.
+LLSwitch is provided under the MIT license. See LICENSE file for details.

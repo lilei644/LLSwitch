@@ -1,0 +1,13 @@
+Pod::Spec.new do |s|
+s.name         = "LLSwitch"
+s.version      = "1.0.1"
+s.summary      = "This is a funny switch for iOS."
+s.homepage     = "https://github.com/lilei644/LLSwitch"
+s.license      = { :type => "MIT", :file => "LICENSE" }
+s.author       = { "lilei644" => "1793161563@qq.com" }
+s.platform     = :ios, "6.0"
+s.source       = { :git => "https://github.com/lilei644/LLSwitch", :tag => s.version.to_s }
+s.requires_arc = true
+s.source_files  = "LLSwitch/*.{h,m}"
+s.framework = "UIKit","QuartzCore"
+end

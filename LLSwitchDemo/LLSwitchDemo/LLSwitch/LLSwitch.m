@@ -131,6 +131,8 @@ NSString * const EyesCloseAndOpenAnimationKey = @"EyesCloseAndOpenAnimationKey";
     _offColor = offColor;
     if (!_on) {
         _backgroundView.backgroundColor = offColor;
+        _eyesLayer.eyeColor = offColor;
+        [self.eyesLayer setNeedsDisplay];
     }
 }
 
@@ -138,6 +140,8 @@ NSString * const EyesCloseAndOpenAnimationKey = @"EyesCloseAndOpenAnimationKey";
     _onColor = onColor;
     if (_on) {
         _backgroundView.backgroundColor = onColor;
+        _eyesLayer.eyeColor = onColor;
+        [self.eyesLayer setNeedsDisplay];
     }
 }
 

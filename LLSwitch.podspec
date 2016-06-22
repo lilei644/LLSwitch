@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "LLSwitch"
-s.version      = "1.0.2"
+s.version      = "1.0.3"
 s.summary      = "This is a funny switch for iOS."
 s.homepage     = "https://github.com/lilei644/LLSwitch"
 s.license      = { :type => "MIT", :file => "LICENSE" }

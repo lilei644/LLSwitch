@@ -53,6 +53,10 @@ NSLog(@"start");
 - (void)animationDidStopForLLSwitch:(LLSwitch *)llSwitch {
 NSLog(@"stop");
 }
+
+- (void)valueDidChanged:(LLSwitch *)llSwitch on:(BOOL)on {
+NSLog(@"stop --- on:%hhd", on);
+}
 ```
 * support xib and storyboard&nbsp;支持xib和storyboard
 ![LLSwitchForXib](https://github.com/lilei644/LLSwitch/blob/master/Preview/LLSwitchForXib.png)

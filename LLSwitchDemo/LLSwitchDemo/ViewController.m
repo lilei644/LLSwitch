@@ -31,4 +31,8 @@
     NSLog(@"stop");
 }
 
+- (void)valueDidChanged:(LLSwitch *)llSwitch on:(BOOL)on {
+    NSLog(@"stop --- on:%hhd", on);
+}
+
 @end

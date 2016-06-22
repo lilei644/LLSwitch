@@ -55,4 +55,7 @@ IB_DESIGNABLE @interface LLSwitch : UIView
 
 - (void)animationDidStopForLLSwitch:(LLSwitch *)llSwitch;
 
+
+- (void)valueDidChanged:(LLSwitch *)llSwitch on:(BOOL)on;
+
 @end

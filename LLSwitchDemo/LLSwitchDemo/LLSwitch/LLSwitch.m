@@ -308,6 +308,11 @@ NSString * const EyesCloseAndOpenAnimationKey = @"EyesCloseAndOpenAnimationKey";
             if ([self.delegate respondsToSelector:@selector(animationDidStopForLLSwitch:)]) {
                 [self.delegate animationDidStopForLLSwitch:self];
             }
+            
+            // valueChanged
+            if ([self.delegate respondsToSelector:@selector(valueDidChanged:on:)]) {
+                [self.delegate valueDidChanged:self on:self.on];
+            }
         }
     }
 }

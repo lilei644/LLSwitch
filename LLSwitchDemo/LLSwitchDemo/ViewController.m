@@ -21,6 +21,7 @@
     LLSwitch *llSwitch = [[LLSwitch alloc] initWithFrame:CGRectMake(100, 100, 120, 60)];
     [self.view addSubview:llSwitch];
     llSwitch.delegate = self;
+    [llSwitch setOn:YES animated:YES];
 }
 
 -(void)didTapLLSwitch:(LLSwitch *)llSwitch {

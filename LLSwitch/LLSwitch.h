@@ -41,6 +41,9 @@ IB_DESIGNABLE @interface LLSwitch : UIView
 
 @property (nonatomic, weak) IBOutlet id <LLSwitchDelegate> delegate;
 
+
+- (void)setOn:(BOOL)on animated:(BOOL)animated;
+
 @end
 
 

@@ -39,6 +39,9 @@ llSwitch.onColor = [UIColor blueColor];    // switch is open color    开关打�
 llSwitch.offColor = [UIColor grayColor];    // switch is close color    开关关闭的颜色
 llSwitch.faceColor = [UIColor whiteColor];    // switch face color    圆脸的颜色
 llSwitch.animationDuration = 1.2f;    // switch open or close animation time    开关的动画时间
+
+[llSwitch setOn:YES];                 // set on and off     设置开关
+[llSwitch setOn:YES animated:YES];
 ```
 
 * delegate &nbsp;代理监听

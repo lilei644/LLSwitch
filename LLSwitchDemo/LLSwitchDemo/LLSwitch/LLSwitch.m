@@ -156,14 +156,41 @@ NSString * const EyesCloseAndOpenAnimationKey = @"EyesCloseAndOpenAnimationKey";
 }
 
 - (void)setOn:(BOOL)on {
+    
+    if ((_on && on)||(!_on && !on)) {
+        return;
+    }
     _on = on;
     if (on) {
+        [self.backgroundView.layer removeAllAnimations];
         self.backgroundView.backgroundColor = _onColor;
+        [self.circleFaceLayer removeAllAnimations];
         self.circleFaceLayer.position = CGPointMake(self.circleFaceLayer.position.x + _moveDistance, self.circleFaceLayer.position.y);
         self.eyesLayer.eyeColor = _onColor;
         self.eyesLayer.isLiking = YES;
         self.eyesLayer.mouthOffSet = _eyesLayer.frame.size.width;
         [self.eyesLayer needsDisplay];
+    } else {
+        [self.backgroundView.layer removeAllAnimations];
+        self.backgroundView.backgroundColor = _offColor;
+        [self.circleFaceLayer removeAllAnimations];
+        self.circleFaceLayer.position = CGPointMake(self.circleFaceLayer.position.x - _moveDistance, self.circleFaceLayer.position.y);
+        self.eyesLayer.eyeColor = _offColor;
+        self.eyesLayer.isLiking = NO;
+        self.eyesLayer.mouthOffSet = 0;
+        [self.eyesLayer needsDisplay];
+    }
+}
+
+
+- (void)setOn:(BOOL)on animated:(BOOL)animated {
+    if ((_on && on)||(!_on && !on)) {
+        return;
+    }
+    if (animated) {
+        [self handleTapSwitch];
+    } else {
+        [self setOn:on];
     }
 }
 

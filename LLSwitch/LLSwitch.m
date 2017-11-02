@@ -279,9 +279,9 @@ NSString * const EyesCloseAndOpenAnimationKey = @"EyesCloseAndOpenAnimationKey";
         _eyesLayer.isLiking = NO;
         _eyesLayer.mouthY = _eyesLayer.eyeRect.size.height * 7 / 4;
         _eyesLayer.frame = CGRectMake(_faceLayerWidth / 4, _circleFaceLayer.frame.size.height * 0.28, _faceLayerWidth / 2, _circleFaceLayer.frame.size.height * 0.72);
-    //    _eyesLayer.backgroundColor = [UIColor redColor].CGColor;
+        //    _eyesLayer.backgroundColor = [UIColor redColor].CGColor;
         [self.circleFaceLayer addSublayer:_eyesLayer];
-
+        
     }
     return  _eyesLayer;
 }
@@ -294,7 +294,9 @@ NSString * const EyesCloseAndOpenAnimationKey = @"EyesCloseAndOpenAnimationKey";
         if (anim == [_eyesLayer animationForKey:EyesMoveStartAnimationKey]) {
             _eyesLayer.eyeColor = _on ?  _offColor: _onColor;
             _eyesLayer.isLiking = !_on;
+            _backgroundView.backgroundColor = _eyesLayer.eyeColor;
             [_eyesLayer setNeedsDisplay];
+            [_backgroundView setNeedsDisplay];
             CABasicAnimation *rotationAnimation = [_animationManager eyeMoveAnimationFromValue:@(_on ? _faceLayerWidth : -_faceLayerWidth) toValue:@(_on ? -_faceLayerWidth / 6 :  _faceLayerWidth / 6)];
             rotationAnimation.delegate = self;
             [_eyesLayer addAnimation:rotationAnimation forKey:EyesMoveEndAnimationKey];
@@ -318,7 +320,6 @@ NSString * const EyesCloseAndOpenAnimationKey = @"EyesCloseAndOpenAnimationKey";
         
         // eyes back animation end
         if (anim == [_eyesLayer animationForKey:EyesMoveBackAnimationKey]) {
-            [_eyesLayer removeAllAnimations];
             _eyesLayer.mouthOffSet = _on ? 0 : _eyesLayer.frame.size.width;
             
             if (_on) {
@@ -340,6 +341,10 @@ NSString * const EyesCloseAndOpenAnimationKey = @"EyesCloseAndOpenAnimationKey";
             if ([self.delegate respondsToSelector:@selector(valueDidChanged:on:)]) {
                 [self.delegate valueDidChanged:self on:self.on];
             }
+            
+            [self.eyesLayer removeAllAnimations];
+            [self.circleFaceLayer removeAllAnimations];
+            [self.backgroundView.layer removeAllAnimations];
         }
     }
 }
@@ -352,9 +357,12 @@ NSString * const EyesCloseAndOpenAnimationKey = @"EyesCloseAndOpenAnimationKey";
     [_eyesLayer addAnimation:keyAnimation forKey:MouthFrameAnimationKey];
 }
 
+
 - (void)dealloc {
     self.delegate = nil;
 }
 
 
 @end
+
+
